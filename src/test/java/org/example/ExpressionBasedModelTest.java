@@ -69,7 +69,10 @@ public class ExpressionBasedModelTest {
         }
 
         Assertions.assertEquals(Optimisation.State.OPTIMAL,state);
-        Assertions.assertTrue(objectiveOfMinimum <= objectiveOfSomeProfile, objectiveOfMinimum+"<="+objectiveOfSomeProfile);
+
+        final double relativeError = Math.abs(1-objectiveOfMinimum/objectiveOfSomeProfile);
+
+        Assertions.assertTrue(relativeError<= 1e-5, "relative error "+relativeError +"<= 1e-2");
 
     }
 
