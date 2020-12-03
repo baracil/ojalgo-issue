@@ -24,7 +24,7 @@ public class ExpressionBasedModelTest {
     private Access1D<BigDecimal> someProfile;
 
     public static Stream<Double> alphaValues() {
-        return Stream.of(0.273e-6, 0.272e-6);
+        return Stream.of(0.269e-6,0.271e-6, 0.272e-6,0.273e-6);
     }
 
     @BeforeEach
@@ -34,7 +34,6 @@ public class ExpressionBasedModelTest {
         qRegul = MatrixReader.readMatrix("regul_quadratic.csv").get();
         someProfile = Access1D.wrap(SOME_PROFILE);
     }
-
 
 
     @ParameterizedTest
