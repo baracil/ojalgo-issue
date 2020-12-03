@@ -32,11 +32,11 @@ public class PositiveConstraintOnConvexSolverTest
 
     @Test
     public void resultShouldHonorInequalities() {
-        final var solve = ConvexSolver.getBuilder(q,c).inequalities(ai,bi).build();
-        final var result = solve.solve();
+        final ConvexSolver solve = ConvexSolver.getBuilder(q,c).inequalities(ai,bi).build();
+        final Optimisation.Result result = solve.solve();
         Assertions.assertEquals(Optimisation.State.OPTIMAL,result.getState());
 
-        final var data = result.toRawCopy1D();
+        final double[] data = result.toRawCopy1D();
         for (int i = 0; i < data.length; i++) {
             Assertions.assertTrue(data[i]>=0, "Element at index '"+i+"' should be positive");
         }
